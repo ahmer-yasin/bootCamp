@@ -2,7 +2,13 @@
  * Created by AHMER on 10/21/2014.
  */
 app.factory('bgService',function(){
-    var myService;
+    var serviceName = 'com.red_folder.phonegap.plugin.backgroundservice.sample.MyService';
+
+    var factory = require('com.red_folder.phonegap.plugin.backgroundservice.BackgroundService')
+    module.exports = factory.create(serviceName);
+
+
+   /* var myService;
 
     document.addEventListener('deviceready', function() {
         var serviceName = 'com.red_folder.phonegap.plugin.backgroundservice.sample.MyService';
@@ -25,5 +31,5 @@ app.factory('bgService',function(){
         }
     return {
         'getStatus':getStatus
-    }
+    }*/
 })
