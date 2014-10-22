@@ -6,5 +6,5 @@ app.controller('splash',function($scope,$state){
     $scope.splashFunc = function(){
         $state.go('login');
     };
-    setInterval($scope.splashFunc, 3000);
+    setInterval($scope.splashFunc, 5000);
 });
