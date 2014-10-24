@@ -1,23 +1,23 @@
 <ion-view>
-    <ion-header-bar  title="Sign Up" class="bar bar-royal textCenter">
+    <ion-header-bar  title="Sign Up" class="bar bar-dark textCenter">
         <h1 class="title">Sign Up</h1>
     </ion-header-bar >
     <ion-content class="padding">
         <div class="list list-inset">
             <label class="item item-input">
-                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="First Name" ng-model="user.name">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="Last Name">
+                <input type="text" placeholder="Last Name" ng-model="user.lastName">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="Email">
+                <input type="text" placeholder="Email" ng-model="user.email">
             </label>
             <label class="item item-input">
-                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Password" ng-model="user.password">
             </label>
         </div>
         <hr/>
-        <div class="button button-block button-positive" ui-sref="login">Create Account</div>
+        <div class="button button-block button-dark" ng-click="signUp(user)" ui-sref="login">Create Account</div>
     </ion-content>
 </ion-view>

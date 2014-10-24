@@ -1,0 +1,23 @@
+<ion-view title="Edit Profile">
+    <ion-header-bar  title="Edit Profile" class="bar bar-dark textCenter">
+        <h1 class="title">Edit</h1>
+    </ion-header-bar >
+    <ion-content class="padding">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="First Name" ng-value="{{user.name}}" ng-model="user.name" >
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Last Name" value="{{user.lastName}}" ng-model="user.lastName">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Email" value="{{user.email}}" ng-model="user.email">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" value="{{user.password}}" ng-model="user.password">
+            </label>
+        </div>
+        <hr/>
+        <div class="button button-block button-dark" ng-click="update(user)">Update</div>
+    </ion-content>
+</ion-view>

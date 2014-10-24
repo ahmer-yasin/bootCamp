@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('bootCamp', ['ionic','ngCordova'])
+var app = angular.module('bootCamp', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -33,16 +33,36 @@ var app = angular.module('bootCamp', ['ionic','ngCordova'])
     .config(function($stateProvider,$urlRouterProvider){
         $urlRouterProvider.otherwise('/signUp');
         $stateProvider
+
             .state('login',{
                 url:'/login',
                 controller:'loginCtrl',
                 templateUrl:'partials/login.html'
             })
             .state('home',{
-                url:'/home',
-                controller:'homeCtrl',
                 templateUrl:'partials/home.html'
             })
+            .state('home.main',{
+                url:'/main',
+                templateUrl:'partials/main.html',
+                controller:'homeCtrl'
+            })
+            .state('home.geo',{
+                url:'/geo',
+                templateUrl:'partials/geolocation.html',
+                controller:'geoLocation'
+            })
+            .state('home.editProfile',{
+                url:'/editProfile',
+                controller:'edit',
+                templateUrl:'partials/editProfileScreen.html'
+            })
+            .state('home.search',{
+                url:'/search',
+                templateUrl:'partials/search.html',
+                controller:'searchCtrl'
+            })
+
             .state('signUp',{
                 url:'/signUp',
                 controller:'signUpCtrl',
@@ -67,4 +87,6 @@ var app = angular.module('bootCamp', ['ionic','ngCordova'])
                 return JSON.parse($window.localStorage[key] || '{}');
             }
         }
-    }]);
+    }])
+
+

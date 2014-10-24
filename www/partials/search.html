@@ -1,0 +1,15 @@
+<ion-view title="Search">
+    <ion-content>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="letter">
+            </label>
+            <ul class="list list-inset">
+                <li ng-repeat="data in data | filter:letter" class="item">
+                    {{data}}
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

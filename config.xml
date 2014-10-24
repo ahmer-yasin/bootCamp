@@ -10,6 +10,7 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />
+    <plugin name="Geolocation" value="org.apache.cordova.GeoBroker"/>
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
 

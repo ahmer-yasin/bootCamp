@@ -1,1 +1,18 @@
 /* Empty. Add your own CSS if you like */
+
+
+html, body{
+    background-color: #dddddd;
+}
+
+#map-canvas {
+    height: 80%;
+    margin: 0px;
+    padding: 0px;
+}
+.pane {
+    background-color: yellow;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}

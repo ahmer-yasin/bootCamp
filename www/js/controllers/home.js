@@ -1,12 +1,15 @@
 /**
  * Created by AHMER on 10/21/2014.
  */
-app.controller('homeCtrl',function($scope,$localstorage,Duration,$rootScope){
+app.controller('homeCtrl',function($scope,$localstorage){
     $scope.wellcome = 'Wellcome Home';
-    $scope.duration = 0;
-    Duration.setTime($scope.duration);
-    Duration.start();
-    $scope.time = $rootScope.startTime;
+    $scope.user =$localstorage.getObject('user');
+    $scope.name = $scope.user.name;
+    $scope.lastname = $scope.user.lastName;
+    $scope.email = $scope.user.email;
+    $scope.password = $scope.user.password;
+
+    /*$scope.time = $rootScope.startTime;
     var myObj = new Date();
     console.log(typeof (myObj))
     console.log(myObj.getYear())
@@ -14,14 +17,7 @@ app.controller('homeCtrl',function($scope,$localstorage,Duration,$rootScope){
     console.log(myObj.getDate())
     console.log(myObj.getHours())
     console.log(myObj.getMinutes())
-
-   /* var array = $.map(myObj, function(value, index) {
-        return [value];
-    });*/
-
-
-
-     console.log( typeof (new Date()));
+    console.log( typeof (new Date()));
     var date1 = new Date(2016,2,3,7,9) // 9:00 AM
     var date2 = new Date(); // 5:00 PM
     if (date2 < date1) {
@@ -42,6 +38,6 @@ app.controller('homeCtrl',function($scope,$localstorage,Duration,$rootScope){
         return numyears + " years " +  numdays + " days " + numhours + " hours " + numminutes + " minutes " + numseconds + " seconds";
 
     }
-    console.log(secondsToString(Seconds_Between_Dates));
-   // 28800000 milliseconds (8 hours)
+    console.log(secondsToString(Seconds_Between_Dates));*/
+    // 28800000 milliseconds (8 hours)
 })
