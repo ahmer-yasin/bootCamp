@@ -1,7 +1,7 @@
 /**
  * Created by AHMER on 10/21/2014.
  */
-app.controller('loginCtrl',function($scope,$state){
+app.controller('loginCtrl',function($scope,$state,Duration){
     $scope.username = '';
     $scope.password = '';
     $scope.login = function(){
@@ -11,4 +11,5 @@ app.controller('loginCtrl',function($scope,$state){
         }
 
     }
+
 });

@@ -15,25 +15,24 @@ var app = angular.module('bootCamp', ['ionic','ngCordova'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
   });
 })
-/*.run(function($cordovaSplashscreen) {
-    setTimeout(function() {
-        $cordovaSplashscreen.hide()
-    }, 5000)
-})*/
-/*.run(function(MyDataService) {
-    MyDataService.getThings().then(function(data) {
-        $cordovaSplashscreen.hide()
-    })*/
+    .run(function($localstorage,$rootScope){
+        if (!($localstorage.get('time'))) {
+            $localstorage.set('time',new Date());
+            console.log(new Date());
+        }else{
+            $rootScope.startTime = $localstorage.get('time');
+        }
+
+
+
+
+    })
     .config(function($stateProvider,$urlRouterProvider){
-        $urlRouterProvider.otherwise('/splash');
+        $urlRouterProvider.otherwise('/signUp');
         $stateProvider
-            .state('splash',{
-                url:'/splash',
-                controller:'splash',
-                templateUrl:'partials/splash.html'
-            })
             .state('login',{
                 url:'/login',
                 controller:'loginCtrl',
@@ -44,7 +43,28 @@ var app = angular.module('bootCamp', ['ionic','ngCordova'])
                 controller:'homeCtrl',
                 templateUrl:'partials/home.html'
             })
+            .state('signUp',{
+                url:'/signUp',
+                controller:'signUpCtrl',
+                templateUrl:'partials/signUp.html'
+            })
 
 
 
     })
+    .factory('$localstorage', ['$window', function($window) {
+        return {
+            set: function(key, value) {
+                $window.localStorage[key] = value;
+            },
+            get: function(key, defaultValue) {
+                return $window.localStorage[key] || defaultValue;
+            },
+            setObject: function(key, value) {
+                $window.localStorage[key] = JSON.stringify(value);
+            },
+            getObject: function(key) {
+                return JSON.parse($window.localStorage[key] || '{}');
+            }
+        }
+    }]);
