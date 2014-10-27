@@ -13,6 +13,9 @@
     <plugin name="Geolocation" value="org.apache.cordova.GeoBroker"/>
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="splashscreen" value="screen" />
+    <preference name="splashScreenDelay" value="3000" />
+    <gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.5.0" />
 
     <!-- Don't store local data in an iCloud backup. Turn this to "cloud" to enable storage 
          to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.

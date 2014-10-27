@@ -1,7 +1,7 @@
 /**
- * Created by AHMER on 10/23/2014.
+ * Created by AHMER on 10/27/2014.
  */
-app.factory('Duration',function($timeout,$localstorage)
+app.factory('Duration',function($timeout)
 {
     var eachTick = 1000;
     var isRunning = false;

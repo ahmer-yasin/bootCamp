@@ -17,20 +17,7 @@ var app = angular.module('bootCamp', ['ionic'])
     }
 
   });
-})
-    .run(function($localstorage,$rootScope){
-        if (!($localstorage.get('time'))) {
-            $localstorage.set('time',new Date());
-            console.log(new Date());
-        }else{
-            $rootScope.startTime = $localstorage.get('time');
-        }
-
-
-
-
-    })
-    .config(function($stateProvider,$urlRouterProvider){
+}) .config(function($stateProvider,$urlRouterProvider){
         $urlRouterProvider.otherwise('/signUp');
         $stateProvider
 
@@ -40,7 +27,8 @@ var app = angular.module('bootCamp', ['ionic'])
                 templateUrl:'partials/login.html'
             })
             .state('home',{
-                templateUrl:'partials/home.html'
+                templateUrl:'partials/home.html',
+                controller:'homeCtrl'
             })
             .state('home.main',{
                 url:'/main',
@@ -68,6 +56,11 @@ var app = angular.module('bootCamp', ['ionic'])
                 controller:'signUpCtrl',
                 templateUrl:'partials/signUp.html'
             })
+            .state('timer',{
+                url:'/timer',
+                templateUrl:'partials/timer.html',
+                controller:'timerCtrl'
+            })
 
 
 
@@ -88,5 +81,39 @@ var app = angular.module('bootCamp', ['ionic'])
             }
         }
     }])
+
+    .directive('map', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                onCreate: '&'
+            },
+            link: function ($scope, $element, $attr) {
+                function initialize() {
+                    var mapOptions = {
+                        center: new google.maps.LatLng(43.07493, -89.381388),
+                        zoom: 16,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var map = new google.maps.Map($element[0], mapOptions);
+
+                    $scope.onCreate({map: map});
+
+                    // Stop the side bar from dragging when mousedown/tapdown on the map
+                    google.maps.event.addDomListener($element[0], 'mousedown', function (e) {
+                        e.preventDefault();
+                        return false;
+                    });
+                }
+
+                if (document.readyState === "complete") {
+                    initialize();
+                } else {
+                    google.maps.event.addDomListener(window, 'load', initialize);
+                }
+            }
+        }
+    });
+
 
 
