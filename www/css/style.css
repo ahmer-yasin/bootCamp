@@ -1,15 +1,5 @@
 /* Empty. Add your own CSS if you like */
 
-
-/*html, body{
-    background-color: #dddddd;
-}
-
-#map-canvas {
-    height: 80%;
-    margin: 0px;
-    padding: 0px;
-}*/
 .pane {
     background-color: #FFFFE0;
     -webkit-background-size: cover;
@@ -19,7 +9,7 @@
 map {
     display: block;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 .scroll {
     height: 100%;

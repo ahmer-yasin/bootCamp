@@ -2,8 +2,10 @@
     <ion-header-bar  title="Edit Profile" class="bar bar-dark textCenter">
         <h1 class="title">Edit</h1>
     </ion-header-bar >
-    <ion-content class="padding">
+    <ion-content class="padding" scroll="false">
         <div class="list list-inset">
+            <button ng-click="getPicture()">Capture</button>
+            <img src="" id="smallimage"  style="width:100px; height:100px;" class="text-center"/>
             <label class="item item-input">
                 <input type="text" placeholder="First Name" ng-value="{{user.name}}" ng-model="user.name" >
             </label>

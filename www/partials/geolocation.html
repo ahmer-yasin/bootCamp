@@ -1,12 +1,9 @@
 <ion-view title="GeoLocation">
-    <ion-content>
+    <ion-content scroll="false">
         <ion-header-bar class="bar-dark" >
             <h1 class="title">Map</h1>
             <button class="button button-icon ion-navigate" ng-click="centerOnMe()"> </button>
         </ion-header-bar>
-        <ion-content>
-            <map on-create="mapCreated(map)"></map>
-            <h6 class="padding padding-bottom" style="font-size: 20px">Your IP IS {{ip}}</h6>
+         <map on-create="mapCreated(map)"></map>
         </ion-content>
-    </ion-content>
 </ion-view>

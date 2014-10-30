@@ -1,5 +1,5 @@
-app.controller('geoLocation',function($scope, $ionicLoading, $localstorage) {
-
+app.controller('geoLocation',function($scope, $ionicLoading, $localstorage,$rootScope) {
+    $rootScope.time  = false;
     $scope.mapCreated = function(map) {
         $scope.map = map;
     };

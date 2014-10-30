@@ -1,7 +1,7 @@
 <ion-view title="Sign Up">
-    <ion-content class="padding">
+    <ion-content class="padding" scroll="false">
         <div class="list list-inset">
-            <label class="item item-input">
+             <label class="item item-input">
                 <input type="text" placeholder="First Name" ng-model="user.name">
             </label>
             <label class="item item-input">
@@ -15,6 +15,8 @@
             </label>
         </div>
         <hr/>
-        <div class="button button-block button-dark" ng-click="signUp(user)" ui-sref="login">Create Account</div>
+        <div class="button button-block button-positive" ng-click="signUp(user)">Create Account</div>
+        <div class="button button-block button-dark" ui-sref="login"> Login</div>
+
     </ion-content>
 </ion-view>

@@ -17,8 +17,16 @@ var app = angular.module('bootCamp', ['ionic'])
     }
 
   });
-}) .config(function($stateProvider,$urlRouterProvider){
-        $urlRouterProvider.otherwise('/signUp');
+})
+    .run(function($rootScope){
+        $rootScope.time = false;
+
+
+    })
+
+
+    .config(function($stateProvider,$urlRouterProvider){
+        $urlRouterProvider.otherwise('/login');
         $stateProvider
 
             .state('login',{
@@ -33,22 +41,25 @@ var app = angular.module('bootCamp', ['ionic'])
             .state('home.main',{
                 url:'/main',
                 templateUrl:'partials/main.html',
-                controller:'homeCtrl'
+                authentication:true
             })
             .state('home.geo',{
                 url:'/geo',
                 templateUrl:'partials/geolocation.html',
-                controller:'geoLocation'
+                controller:'geoLocation',
+                authentication:true
             })
             .state('home.editProfile',{
                 url:'/editProfile',
                 controller:'edit',
-                templateUrl:'partials/editProfileScreen.html'
+                templateUrl:'partials/editProfileScreen.html',
+                authentication:true
             })
             .state('home.search',{
                 url:'/search',
                 templateUrl:'partials/search.html',
-                controller:'searchCtrl'
+                controller:'searchCtrl',
+                authentication:true
             })
 
             .state('signUp',{

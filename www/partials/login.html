@@ -1,5 +1,5 @@
 <ion-view title="Login">
-    <ion-content>
+    <ion-content scroll="false">
     <div class="list list-inset">
         <label class="item item-input">
             <input type="text" ng-model="user.name" placeholder="User name">
@@ -9,5 +9,7 @@
         </label>
     </div>
     <div class="button button-block button-dark" on-tap="login(user)"> Login</div>
+    <div class="button button-block button-positive" ui-sref="signUp"> Sign Up</div>
+
         </ion-content>
 </ion-view>
